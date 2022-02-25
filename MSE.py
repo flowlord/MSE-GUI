@@ -18,7 +18,13 @@ III) Block C
 from pyperclip import copy
 from gen_init import*
 from random import randint,choice
-from keylib import listkey,getRandomKey
+from keylib_generator import gen_file
+
+try:
+    from keylib import listkey,getRandomKey
+except ModuleNotFoundError:
+    gen_file()
+    from keylib import listkey,getRandomKey
 
 
 def revlst(key):

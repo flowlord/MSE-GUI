@@ -1,6 +1,7 @@
 from tkinter import*
 from MSE import mse_cipher,mse_decipher
 from keylib_generator import gen_file
+from tkinter.messagebox import *
 
 app = Tk()
 app.title("Genesis Key")
@@ -14,7 +15,7 @@ larg_entry = w-larg_cons
 font_size = 20
 
 entree = StringVar()
-entree = Text(app, width=w, height=20,bg="#1990A4",fg='#fff', font=("Monospace", font_size))
+entree = Text(app, width=w, height=20,bg="#864149",fg='#fff', font=("Monospace", font_size))
 entree.config(insertbackground="#fff")
 entree.pack(side='top')
 entree.focus()
@@ -39,6 +40,9 @@ def dec():
 		entree.insert(1.0, mse_decipher(msg))
 		entree.insert(1.0, "\n")
 
+def gen_k():
+	gen_file()
+	showinfo('Successful operation', 'The keys have been generated')
 
 cip_btn = Button(app,text="Cipher",bg="#19D1A4",fg="#fff",relief=FLAT,font=("Monospace", font_size),command=cip)
 cip_btn.pack(side='left',padx=20,pady=20)
@@ -46,7 +50,7 @@ cip_btn.pack(side='left',padx=20,pady=20)
 dec_btn = Button(app,text="Decipher",bg="#C9787D",fg="#fff",relief=FLAT,font=("Monospace", font_size),command=dec)
 dec_btn.pack(side='left',padx=20,pady=20)
 
-gen_btn = Button(app,text="Generate keys",bg="#C9F47E",fg="#fff",relief=FLAT,font=("Monospace", font_size),command=gen_file)
+gen_btn = Button(app,text="Generate keys",bg="#C9F47E",fg="#fff",relief=FLAT,font=("Monospace", font_size),command=gen_k)
 gen_btn.pack(side='left',padx=20,pady=20)
 
 app.mainloop()

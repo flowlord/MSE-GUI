@@ -54,7 +54,6 @@ def gen_file():
     """
     Generate encryption keys in a python file
     """
-    print("hello")
     keyNumber = randint(100,2500)
     file = open('keylib.py','w',encoding='utf-8')
     
